@@ -26,7 +26,7 @@ def read_motor_inputs(filename):
 def handle_arm(joint1, joint2, joint3,motor_inputs, ev3):
     arm_speed = 100 #deg/s
     pen_speed = 60  #deg/s
-    pen_angle = [28, 0] #[down, up]
+    pen_angle = [30, 0] #[down, up]
     # change_write_path = [1, 4, 6] #日
     change_write_path = [1, 3, 5, 11, 13, 15, 18, 20, 22] #春
     magic_offset = 5
@@ -42,10 +42,10 @@ def handle_arm(joint1, joint2, joint3,motor_inputs, ev3):
             joint3.run_target(pen_speed, pen_angle[0], then=Stop.HOLD, wait=True)
         else:
             joint3.run_target(pen_speed, pen_angle[1], then=Stop.HOLD, wait=True)
-        if(int(current_path) == path_count):
-            path_count += 1
-            wait(1000)
-            ev3.speaker.beep()
+        # if(int(current_path) == path_count):
+        #     path_count += 1
+        #     wait(1000)
+        #     ev3.speaker.beep()
     
     #reset
     joint3.run_target(pen_speed, pen_angle[1], then=Stop.HOLD, wait=True)
