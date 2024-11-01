@@ -26,9 +26,9 @@ def read_motor_inputs(filename):
 def handle_arm(joint1, joint2, joint3,motor_inputs, ev3):
     arm_speed = 100 #deg/s
     pen_speed = 60  #deg/s
-    pen_angle = [30, 0] #[down, up]
-    # change_write_path = [1, 4, 6] #日
-    change_write_path = [1, 3, 5, 11, 13, 15, 18, 20, 22] #春
+    pen_angle = [27, 0] #[down, up]
+    change_write_path = [1, 4, 6] #日
+    # change_write_path = [1, 3, 5, 11, 13, 14, 16, 19, 21, 23] #春
     magic_offset = 5
     path_count = 0
 
@@ -50,7 +50,7 @@ def handle_arm(joint1, joint2, joint3,motor_inputs, ev3):
     #reset
     joint3.run_target(pen_speed, pen_angle[1], then=Stop.HOLD, wait=True)
     joint1.run_target(50, 0)
-    joint2.run_target(50, 0)
+    joint2.run_target(50, 90)
 
 def main():
     ev3 = EV3Brick()
@@ -62,7 +62,7 @@ def main():
     joint1.reset_angle(0)
     joint1.hold()
     joint2 = Motor(Port.B, positive_direction = Direction.CLOCKWISE)
-    joint2.reset_angle(0)
+    joint2.reset_angle(90)
     joint2.hold()
     joint3 = Motor(Port.C, positive_direction = Direction.CLOCKWISE)
     joint3.reset_angle(0)
