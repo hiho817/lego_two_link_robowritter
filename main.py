@@ -23,7 +23,7 @@ def read_motor_inputs(filename):
         # print(f"An error occurred while reading the file: {e}")
         return None
 
-def handle_arm(joint1, joint2, joint3,motor_inputs, ev3):
+def handle_arm(joint1, joint2, joint3,motor_inputs):
     arm_speed = 100 #deg/s
     pen_speed = 60  #deg/s
     pen_angle = [27, 0] #[down, up]
@@ -68,7 +68,7 @@ def main():
     joint3.reset_angle(0)
     joint3.hold()
 
-    handle_arm(joint1, joint2, joint3, motor_inputs, ev3)
+    handle_arm(joint1, joint2, joint3, motor_inputs)
 
     ev3.speaker.beep()
 
