@@ -27,8 +27,8 @@ def handle_arm(joint1, joint2, joint3,motor_inputs, ev3):
     arm_speed = 100 #deg/s
     pen_speed = 60  #deg/s
     pen_angle = [27, 0] #[down, up]
-    change_write_path = [1, 4, 6] #日
-    # change_write_path = [1, 3, 5, 11, 13, 14, 16, 19, 21, 23] #春
+    # change_write_path = [1, 4, 6] #日
+    change_write_path = [1, 3, 5, 11, 13, 14, 16, 19, 21, 23] #春
     magic_offset = 5
     path_count = 0
 
